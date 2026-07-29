@@ -5,6 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Saudagar Motor Driving School — Learn Today. Drive Tomorrow.</title>
 <meta name="description" content="Professional driving training and complete RTO assistance in Dapodi, Pune.">
+
+<meta property="og:title" content="Saudagar Motor Driving School — Learn Today. Drive Tomorrow.">
+<meta property="og:description" content="Professional driving training and complete RTO assistance in Dapodi, Pune.">
+<meta property="og:type" content="website">
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,13 +24,17 @@
 <header id="site-header">
   <div class="container nav">
     <a href="#" class="logo">Saudagar Motor Driving School</a>
-    <nav>
+    <nav id="primaryNav">
       <a href="#why">Why Us</a>
       <a href="#courses">Courses</a>
       <a href="#rates">Rates</a>
       <a href="#contact">Contact</a>
+      <a class="btn btn-small nav-cta-mobile" href="tel:9766507860">Call Now</a>
     </nav>
-    <a class="btn btn-small" href="tel:9766507860">Call Now</a>
+    <a class="btn btn-small nav-cta-desktop" href="tel:9766507860">Call Now</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="primaryNav">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
@@ -30,6 +46,27 @@
   <div class="hero-actions reveal">
     <a class="btn" href="tel:9766507860">Call Now</a>
     <a class="btn btn-ghost" href="#courses">Explore Courses</a>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="container stats-grid">
+    <div class="stat reveal">
+      <p class="stat-number">6</p>
+      <p class="stat-label">Courses Offered</p>
+    </div>
+    <div class="stat reveal">
+      <p class="stat-number">2</p>
+      <p class="stat-label">Two &amp; Four Wheeler Training</p>
+    </div>
+    <div class="stat reveal">
+      <p class="stat-number">7</p>
+      <p class="stat-label">Days a Week</p>
+    </div>
+    <div class="stat reveal">
+      <p class="stat-number">13 hrs</p>
+      <p class="stat-label">Open Daily, 7 AM – 8 PM</p>
+    </div>
   </div>
 </section>
 
@@ -169,15 +206,48 @@
 </footer>
 
 <script>
-document.getElementById('site-header').addEventListener('scroll',()=>{});
+const header = document.getElementById('site-header');
 window.addEventListener('scroll',()=>{
-  document.getElementById('site-header').classList.toggle('scrolled', window.scrollY > 8);
+  header.classList.toggle('scrolled', window.scrollY > 8);
 });
 
 const io = new IntersectionObserver(entries=>{
   entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); } });
 },{threshold:0.15});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* Mobile nav toggle */
+const navToggle = document.getElementById('navToggle');
+const primaryNav = document.getElementById('primaryNav');
+
+function closeMenu(){
+  header.classList.remove('menu-open');
+  navToggle.setAttribute('aria-expanded','false');
+  document.body.style.overflow='';
+}
+function openMenu(){
+  header.classList.add('menu-open');
+  navToggle.setAttribute('aria-expanded','true');
+  document.body.style.overflow='hidden';
+}
+navToggle.addEventListener('click',()=>{
+  header.classList.contains('menu-open') ? closeMenu() : openMenu();
+});
+primaryNav.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeMenu));
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeMenu(); });
+
+/* Scroll-spy active section link */
+const navLinks = [...primaryNav.querySelectorAll('a[href^="#"]')];
+const sections = navLinks.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+const spy = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      const id = '#'+entry.target.id;
+      navLinks.forEach(a=>a.classList.toggle('active', a.getAttribute('href')===id));
+    }
+  });
+},{rootMargin:'-45% 0px -50% 0px'});
+sections.forEach(s=>spy.observe(s));
 </script>
 </body>
 </html>
