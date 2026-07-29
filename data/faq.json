@@ -1,0 +1,26 @@
+{
+  "heading": "Frequently asked questions",
+  "subtitle": "Answers to what most learners ask before joining.",
+  "items": [
+    {
+      "question": "What is the minimum age to enroll?",
+      "answer": "You can enroll for two-wheeler (gearless) training at 16 with parental consent, and for car or geared two-wheeler training at 18."
+    },
+    {
+      "question": "What documents do I need to bring?",
+      "answer": "A valid ID proof and address proof (Aadhaar card, passport, or voter ID) and a few passport-size photographs. We'll guide you through the rest of the RTO paperwork."
+    },
+    {
+      "question": "Do you provide the training vehicle?",
+      "answer": "Yes, all training is done in our own well-maintained vehicles, both two-wheelers and cars, fitted with dual controls for safety."
+    },
+    {
+      "question": "How long does the course take?",
+      "answer": "Most courses run over 15–22 days depending on the package, with daily practice sessions. We'll help you pick a schedule that fits your routine."
+    },
+    {
+      "question": "Do you help with the RTO licence test?",
+      "answer": "Yes — our Complete RTO Assistance covers the learner's licence, booking your test slot, and preparing you for the final driving test."
+    }
+  ]
+}

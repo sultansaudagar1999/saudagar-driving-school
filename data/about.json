@@ -1,0 +1,26 @@
+{
+  "heading": "Why learn with us",
+  "subtitle": "Every lesson is designed to make you a calm, confident, licensed driver.",
+  "features": [
+    {
+      "icon": "instructor",
+      "title": "Expert Instructors",
+      "description": "Patient, experienced trainers for both two-wheelers and cars, teaching real road skills — not just theory."
+    },
+    {
+      "icon": "rto",
+      "title": "Complete RTO Assistance",
+      "description": "From learner's licence to final driving test — we handle the paperwork so you don't have to."
+    },
+    {
+      "icon": "clock",
+      "title": "Flexible Timings",
+      "description": "Open 7:00 AM – 8:00 PM, every day. Book a slot that actually fits your schedule."
+    },
+    {
+      "icon": "shield",
+      "title": "Trusted Locally",
+      "description": "Years of experience training drivers around Dapodi and Pimpri-Chinchwad, one confident driver at a time."
+    }
+  ]
+}

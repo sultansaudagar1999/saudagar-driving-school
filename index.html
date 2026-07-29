@@ -27,12 +27,14 @@
     <nav id="primaryNav">
       <a href="#why">Why Us</a>
       <a href="#gallery">Gallery</a>
+      <a href="#testimonials" id="navTestimonials">Testimonials</a>
       <a href="#courses">Courses</a>
       <a href="#rates">Rates</a>
+      <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
-      <a class="btn btn-small nav-cta-mobile" href="tel:9766507860">Call Now</a>
+      <a class="btn btn-small nav-cta-mobile" data-call-now href="tel:">Call Now</a>
     </nav>
-    <a class="btn btn-small nav-cta-desktop" href="tel:9766507860">Call Now</a>
+    <a class="btn btn-small nav-cta-desktop" data-call-now href="tel:">Call Now</a>
     <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="primaryNav">
       <span></span><span></span><span></span>
     </button>
@@ -40,117 +42,32 @@
 </header>
 
 <section class="hero">
-  <p class="eyebrow reveal">Pune's trusted driving school</p>
-  <h1 class="reveal">Learn Today.<br>Drive Tomorrow.</h1>
-  <p class="hero-sub reveal">Professional driving training and complete RTO assistance,
-     built around you.</p>
+  <p class="eyebrow reveal" id="heroEyebrow"></p>
+  <h1 class="reveal" id="heroHeading"></h1>
+  <p class="hero-sub reveal" id="heroSub"></p>
   <div class="hero-actions reveal">
-    <a class="btn" href="tel:9766507860">Call Now</a>
-    <a class="btn btn-ghost" href="#courses">Explore Courses</a>
+    <a class="btn" data-call-now href="tel:" id="heroPrimaryBtn"></a>
+    <a class="btn btn-ghost" href="#courses" id="heroSecondaryBtn"></a>
   </div>
 </section>
 
 <section class="stats">
-  <div class="container stats-grid">
-    <div class="stat reveal">
-      <p class="stat-number">6</p>
-      <p class="stat-label">Courses Offered</p>
-    </div>
-    <div class="stat reveal">
-      <p class="stat-number">2</p>
-      <p class="stat-label">Two &amp; Four Wheeler Training</p>
-    </div>
-    <div class="stat reveal">
-      <p class="stat-number">7</p>
-      <p class="stat-label">Days a Week</p>
-    </div>
-    <div class="stat reveal">
-      <p class="stat-number">13 hrs</p>
-      <p class="stat-label">Open Daily, 7 AM – 8 PM</p>
-    </div>
-  </div>
+  <div class="container stats-grid" id="statsGrid"></div>
 </section>
 
 <section id="why" class="section">
   <div class="container">
-    <h2 class="reveal">Why learn with us</h2>
-    <p class="section-sub reveal">Every lesson is designed to make you a calm, confident, licensed driver.</p>
-
-    <div class="feature-grid">
-      <div class="feature reveal">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <circle cx="12" cy="12" r="8.5"/>
-            <circle cx="12" cy="12" r="2.4" fill="currentColor" stroke="none"/>
-            <path d="M12 5.2V8M12 16v2.8M18.8 12H16M8 12H5.2"/>
-          </svg>
-        </div>
-        <h3>Expert Instructors</h3>
-        <p>Patient, experienced trainers for both two-wheelers and cars, teaching real road skills — not just theory.</p>
-      </div>
-
-      <div class="feature reveal">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect x="3" y="6" width="18" height="12.5" rx="2.2"/>
-            <circle cx="8.2" cy="12.2" r="1.9"/>
-            <path d="M13 10.6h5M13 13.8h3.2"/>
-          </svg>
-        </div>
-        <h3>Complete RTO Assistance</h3>
-        <p>From learner's licence to final driving test — we handle the paperwork so you don't have to.</p>
-      </div>
-
-      <div class="feature reveal">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <circle cx="12" cy="12" r="8.5"/>
-            <path d="M12 7.5V12l3.2 2"/>
-          </svg>
-        </div>
-        <h3>Flexible Timings</h3>
-        <p>Open 7:00 AM – 8:00 PM, every day. Book a slot that actually fits your schedule.</p>
-      </div>
-
-      <div class="feature reveal">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M12 3.5l7 3v5c0 4.6-3 8.2-7 9.5-4-1.3-7-4.9-7-9.5v-5l7-3z"/>
-            <path d="M9 12.2l2 2 4-4.2"/>
-          </svg>
-        </div>
-        <h3>Trusted Locally</h3>
-        <p>Years of experience training drivers around Dapodi and Pimpri-Chinchwad, one confident driver at a time.</p>
-      </div>
-    </div>
+    <h2 class="reveal" id="aboutHeading"></h2>
+    <p class="section-sub reveal" id="aboutSubtitle"></p>
+    <div class="feature-grid" id="featureGrid"></div>
   </div>
 </section>
 
 <section id="gallery" class="section">
   <div class="container">
-    <h2 class="reveal">Our Training in Action</h2>
-    <p class="section-sub reveal">A look at the vehicles, practice tracks, and lessons that get you road-ready.</p>
-
-    <div class="gallery-grid">
-      <button class="gallery-item reveal" type="button">
-        <img src="images/gallery/learning-to-drive.jpg" alt="Instructor handing over the car keys to a learner" loading="lazy">
-      </button>
-      <button class="gallery-item reveal" type="button">
-        <img src="images/gallery/practice-track.jpg" alt="Cone-marked practice track used for driving training" loading="lazy">
-      </button>
-      <button class="gallery-item reveal" type="button">
-        <img src="images/gallery/two-wheeler-training.jpg" alt="Row of two-wheelers used for scooter and bike training" loading="lazy">
-      </button>
-      <button class="gallery-item reveal" type="button">
-        <img src="images/gallery/on-the-road.jpg" alt="Rider on a two-wheeler practicing on the road" loading="lazy">
-      </button>
-      <button class="gallery-item reveal" type="button">
-        <img src="images/gallery/behind-the-wheel.jpg" alt="Student driver focused behind the steering wheel" loading="lazy">
-      </button>
-      <button class="gallery-item reveal" type="button">
-        <img src="images/gallery/confident-driving.jpg" alt="Instructor and student smiling during a car lesson" loading="lazy">
-      </button>
-    </div>
+    <h2 class="reveal" id="galleryHeading"></h2>
+    <p class="section-sub reveal" id="gallerySubtitle"></p>
+    <div class="gallery-grid" id="galleryGrid"></div>
   </div>
 </section>
 
@@ -159,75 +76,63 @@
   <img id="lightboxImg" src="" alt="">
 </div>
 
+<section id="testimonials" class="section is-hidden">
+  <div class="container">
+    <h2 class="reveal" id="testimonialsHeading"></h2>
+    <p class="section-sub reveal" id="testimonialsSubtitle"></p>
+    <div class="testimonial-grid" id="testimonialsGrid"></div>
+  </div>
+</section>
+
 <section id="courses" class="section section-dark">
   <div class="container">
-    <h2 class="reveal">Popular Courses</h2>
-    <p class="section-sub reveal">Simple pricing. No hidden charges.</p>
-
-    <div class="grid">
-      <div class="card reveal">
-        <h3>Only Car Training</h3>
-        <p class="price">₹4,500</p>
-        <a class="btn btn-small btn-ghost" href="tel:9766507860">Enquire</a>
-      </div>
-      <div class="card reveal">
-        <h3>2 Wheeler License</h3>
-        <p class="price">₹2,500</p>
-        <a class="btn btn-small btn-ghost" href="tel:9766507860">Enquire</a>
-      </div>
-      <div class="card card-highlight reveal">
-        <p class="badge">Most Popular</p>
-        <h3>4 Wheeler Training + License</h3>
-        <p class="price">₹6,500</p>
-        <a class="btn btn-small" href="tel:9766507860">Enquire</a>
-      </div>
-      <div class="card reveal">
-        <h3>Complete Package</h3>
-        <p class="price">₹8,000</p>
-        <a class="btn btn-small btn-ghost" href="tel:9766507860">Enquire</a>
-      </div>
-    </div>
+    <h2 class="reveal" id="coursesHeading"></h2>
+    <p class="section-sub reveal" id="coursesSubtitle"></p>
+    <div class="grid" id="coursesGrid"></div>
   </div>
 </section>
 
 <section id="rates" class="section">
   <div class="container">
-    <h2 class="reveal">Rate Chart</h2>
-    <p class="section-sub reveal">Transparent pricing for every course we offer.</p>
+    <h2 class="reveal" id="rateHeading"></h2>
+    <p class="section-sub reveal" id="rateSubtitle"></p>
 
     <div class="table-wrap reveal">
       <table>
-        <tr><th>Course</th><th>Fee</th></tr>
-        <tr><td>Only Car Training</td><td>₹4,500</td></tr>
-        <tr><td>2 Wheeler License</td><td>₹2,500</td></tr>
-        <tr><td>4 Wheeler Training &amp; License</td><td>₹6,500</td></tr>
-        <tr><td>2 Wheeler + 4 Wheeler Training &amp; License</td><td>₹7,000</td></tr>
-        <tr><td>Transport (HGV)</td><td>₹5,500</td></tr>
-        <tr><td>Complete Package</td><td>₹8,000</td></tr>
+        <thead><tr><th>Course</th><th>Fee</th></tr></thead>
+        <tbody id="rateTableBody"></tbody>
       </table>
     </div>
+  </div>
+</section>
+
+<section id="faq" class="section">
+  <div class="container">
+    <h2 class="reveal" id="faqHeading"></h2>
+    <p class="section-sub reveal" id="faqSubtitle"></p>
+    <div class="faq-list" id="faqList"></div>
   </div>
 </section>
 
 <section id="contact" class="section section-dark">
   <div class="container contact-grid">
     <div class="reveal">
-      <h2>Get in touch</h2>
-      <p class="section-sub">Walk in, call, or drop by — we're happy to answer any question.</p>
-      <a class="btn" href="tel:9766507860">Call Now</a>
+      <h2 id="contactHeading"></h2>
+      <p class="section-sub" id="contactSubtitle"></p>
+      <a class="btn" data-call-now href="tel:">Call Now</a>
     </div>
     <div class="contact-card reveal">
       <div class="contact-row">
         <span class="contact-label">Address</span>
-        <p>Shop No. 3, Sangam Cross Road, Dapodi, Pune 411012</p>
+        <p id="contactAddress"></p>
       </div>
       <div class="contact-row">
         <span class="contact-label">Phone</span>
-        <p><a href="tel:9766507860">9766507860</a> / <a href="tel:9762628372">9762628372</a></p>
+        <p id="contactPhoneLinks"></p>
       </div>
       <div class="contact-row">
         <span class="contact-label">Hours</span>
-        <p>7:00 AM – 8:00 PM, all week</p>
+        <p id="contactHours"></p>
       </div>
     </div>
   </div>
@@ -240,80 +145,234 @@
 </footer>
 
 <script>
-const header = document.getElementById('site-header');
-window.addEventListener('scroll',()=>{
-  header.classList.toggle('scrolled', window.scrollY > 8);
-});
+/* ---------- content rendering (reads from /data/*.json) ---------- */
 
-const io = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); } });
-},{threshold:0.15});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const ICON_SVGS = {
+  instructor: '<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="2.4" fill="currentColor" stroke="none"/><path d="M12 5.2V8M12 16v2.8M18.8 12H16M8 12H5.2"/>',
+  rto: '<rect x="3" y="6" width="18" height="12.5" rx="2.2"/><circle cx="8.2" cy="12.2" r="1.9"/><path d="M13 10.6h5M13 13.8h3.2"/>',
+  clock: '<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3.2 2"/>',
+  shield: '<path d="M12 3.5l7 3v5c0 4.6-3 8.2-7 9.5-4-1.3-7-4.9-7-9.5v-5l7-3z"/><path d="M9 12.2l2 2 4-4.2"/>',
+};
 
-/* Mobile nav toggle */
-const navToggle = document.getElementById('navToggle');
-const primaryNav = document.getElementById('primaryNav');
-
-function closeMenu(){
-  header.classList.remove('menu-open');
-  navToggle.setAttribute('aria-expanded','false');
-  document.body.style.overflow='';
+function esc(value) {
+  return String(value ?? '').replace(/[&<>"']/g, c => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+  }[c]));
 }
-function openMenu(){
-  header.classList.add('menu-open');
-  navToggle.setAttribute('aria-expanded','true');
-  document.body.style.overflow='hidden';
-}
-navToggle.addEventListener('click',()=>{
-  header.classList.contains('menu-open') ? closeMenu() : openMenu();
-});
-primaryNav.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeMenu));
-document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeMenu(); });
 
-/* Gallery lightbox */
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightboxImg');
-const lightboxClose = document.getElementById('lightboxClose');
-let lastFocused = null;
+async function loadContent(name) {
+  const res = await fetch(`data/${name}.json`);
+  if (!res.ok) throw new Error(`Could not load data/${name}.json`);
+  return res.json();
+}
 
-function openLightbox(src, alt){
-  lastFocused = document.activeElement;
-  lightboxImg.src = src;
-  lightboxImg.alt = alt;
-  lightbox.classList.add('open');
-  lightbox.setAttribute('aria-hidden','false');
-  document.body.style.overflow = 'hidden';
-  lightboxClose.focus();
+function renderHero(data) {
+  document.getElementById('heroEyebrow').textContent = data.eyebrow || '';
+  document.getElementById('heroHeading').innerHTML = (data.heading || '').split('\n').map(esc).join('<br>');
+  document.getElementById('heroSub').textContent = data.subtitle || '';
+  document.getElementById('heroPrimaryBtn').textContent = data.primaryButtonText || 'Call Now';
+
+  const secondaryBtn = document.getElementById('heroSecondaryBtn');
+  secondaryBtn.textContent = data.secondaryButtonText || '';
+  secondaryBtn.href = data.secondaryButtonLink || '#courses';
+
+  document.getElementById('statsGrid').innerHTML = (data.stats || []).map(s => `
+    <div class="stat reveal">
+      <p class="stat-number">${esc(s.number)}</p>
+      <p class="stat-label">${esc(s.label)}</p>
+    </div>`).join('');
 }
-function closeLightbox(){
-  lightbox.classList.remove('open');
-  lightbox.setAttribute('aria-hidden','true');
-  document.body.style.overflow = '';
-  lightboxImg.src = '';
-  if(lastFocused) lastFocused.focus();
+
+function renderAbout(data) {
+  document.getElementById('aboutHeading').textContent = data.heading || '';
+  document.getElementById('aboutSubtitle').textContent = data.subtitle || '';
+  document.getElementById('featureGrid').innerHTML = (data.features || []).map(f => `
+    <div class="feature reveal">
+      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">${ICON_SVGS[f.icon] || ICON_SVGS.instructor}</svg></div>
+      <h3>${esc(f.title)}</h3>
+      <p>${esc(f.description)}</p>
+    </div>`).join('');
 }
-document.querySelectorAll('.gallery-item').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    const img = btn.querySelector('img');
-    openLightbox(img.src, img.alt);
+
+function renderGallery(data) {
+  document.getElementById('galleryHeading').textContent = data.heading || '';
+  document.getElementById('gallerySubtitle').textContent = data.subtitle || '';
+  document.getElementById('galleryGrid').innerHTML = (data.items || []).map(item => `
+    <button class="gallery-item reveal" type="button">
+      <img src="${esc(item.src)}" alt="${esc(item.alt)}" loading="lazy">
+    </button>`).join('');
+}
+
+function renderTestimonials(data) {
+  const section = document.getElementById('testimonials');
+  const navLink = document.getElementById('navTestimonials');
+  const items = data.items || [];
+
+  if (!items.length) {
+    section.classList.add('is-hidden');
+    navLink.classList.add('is-hidden');
+    return;
+  }
+  section.classList.remove('is-hidden');
+  navLink.classList.remove('is-hidden');
+  document.getElementById('testimonialsHeading').textContent = data.heading || '';
+  document.getElementById('testimonialsSubtitle').textContent = data.subtitle || '';
+  document.getElementById('testimonialsGrid').innerHTML = items.map(t => {
+    const stars = Math.max(0, Math.min(5, Number(t.rating) || 0));
+    return `
+    <div class="testimonial-card reveal">
+      <p class="testimonial-rating" aria-label="${stars} out of 5 stars">${'★'.repeat(stars)}${'☆'.repeat(5 - stars)}</p>
+      <p class="testimonial-text">"${esc(t.text)}"</p>
+      <p class="testimonial-name">${esc(t.name)}</p>
+    </div>`;
+  }).join('');
+}
+
+function renderFaq(data) {
+  document.getElementById('faqHeading').textContent = data.heading || '';
+  document.getElementById('faqSubtitle').textContent = data.subtitle || '';
+  document.getElementById('faqList').innerHTML = (data.items || []).map(item => `
+    <details class="faq-item reveal">
+      <summary>${esc(item.question)}</summary>
+      <p>${esc(item.answer)}</p>
+    </details>`).join('');
+}
+
+function renderFees(data, phone) {
+  document.getElementById('coursesHeading').textContent = data.coursesHeading || '';
+  document.getElementById('coursesSubtitle').textContent = data.coursesSubtitle || '';
+  document.getElementById('rateHeading').textContent = data.rateHeading || '';
+  document.getElementById('rateSubtitle').textContent = data.rateSubtitle || '';
+  const courses = data.courses || [];
+
+  document.getElementById('coursesGrid').innerHTML = courses.filter(c => c.showAsCard).map(c => `
+    <div class="card ${c.highlight ? 'card-highlight' : ''} reveal">
+      ${c.badge ? `<p class="badge">${esc(c.badge)}</p>` : ''}
+      <h3>${esc(c.name)}</h3>
+      <p class="price">${esc(c.price)}</p>
+      <a class="btn btn-small ${c.highlight ? '' : 'btn-ghost'}" href="tel:${esc(phone)}">Enquire</a>
+    </div>`).join('');
+
+  document.getElementById('rateTableBody').innerHTML = courses.map(c =>
+    `<tr><td>${esc(c.name)}</td><td>${esc(c.price)}</td></tr>`
+  ).join('');
+}
+
+function renderContact(data) {
+  document.getElementById('contactHeading').textContent = data.heading || '';
+  document.getElementById('contactSubtitle').textContent = data.subtitle || '';
+  document.getElementById('contactAddress').textContent = data.address || '';
+  document.getElementById('contactHours').textContent = data.hours || '';
+  const phones = data.phones || [];
+  document.getElementById('contactPhoneLinks').innerHTML = phones
+    .map(p => `<a href="tel:${esc(p)}">${esc(p)}</a>`)
+    .join(' / ');
+}
+
+function applyCallNowLinks(phone) {
+  document.querySelectorAll('[data-call-now]').forEach(el => { el.href = `tel:${phone}`; });
+}
+
+/* ---------- boot: fetch content, render, then wire up interactivity ---------- */
+
+async function boot() {
+  const [hero, about, gallery, testimonials, faq, fees, contact] = await Promise.all([
+    loadContent('hero'), loadContent('about'), loadContent('gallery'),
+    loadContent('testimonials'), loadContent('faq'), loadContent('fees'), loadContent('contact'),
+  ]);
+
+  const primaryPhone = (contact.phones && contact.phones[0]) || '';
+
+  renderHero(hero);
+  renderAbout(about);
+  renderGallery(gallery);
+  renderTestimonials(testimonials);
+  renderFaq(faq);
+  renderFees(fees, primaryPhone);
+  renderContact(contact);
+  applyCallNowLinks(primaryPhone);
+
+  initInteractivity();
+}
+
+function initInteractivity() {
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 8);
   });
-});
-lightboxClose.addEventListener('click', closeLightbox);
-lightbox.addEventListener('click', e=>{ if(e.target === lightbox) closeLightbox(); });
-document.addEventListener('keydown', e=>{ if(e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox(); });
 
-/* Scroll-spy active section link */
-const navLinks = [...primaryNav.querySelectorAll('a[href^="#"]')];
-const sections = navLinks.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
-const spy = new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      const id = '#'+entry.target.id;
-      navLinks.forEach(a=>a.classList.toggle('active', a.getAttribute('href')===id));
-    }
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  /* Mobile nav toggle */
+  const navToggle = document.getElementById('navToggle');
+  const primaryNav = document.getElementById('primaryNav');
+
+  function closeMenu() {
+    header.classList.remove('menu-open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+  function openMenu() {
+    header.classList.add('menu-open');
+    navToggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  navToggle.addEventListener('click', () => {
+    header.classList.contains('menu-open') ? closeMenu() : openMenu();
   });
-},{rootMargin:'-45% 0px -50% 0px'});
-sections.forEach(s=>spy.observe(s));
+  primaryNav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+
+  /* Gallery lightbox */
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxClose = document.getElementById('lightboxClose');
+  let lastFocused = null;
+
+  function openLightbox(src, alt) {
+    lastFocused = document.activeElement;
+    lightboxImg.src = src;
+    lightboxImg.alt = alt;
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    lightboxClose.focus();
+  }
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    lightboxImg.src = '';
+    if (lastFocused) lastFocused.focus();
+  }
+  document.querySelectorAll('.gallery-item').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const img = btn.querySelector('img');
+      openLightbox(img.src, img.alt);
+    });
+  });
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox(); });
+
+  /* Scroll-spy active section link */
+  const navLinks = [...primaryNav.querySelectorAll('a[href^="#"]')];
+  const sections = navLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  const spy = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = '#' + entry.target.id;
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === id));
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  sections.forEach(s => spy.observe(s));
+}
+
+boot().catch(err => console.error('Failed to load site content:', err));
 </script>
 </body>
 </html>

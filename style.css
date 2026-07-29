@@ -242,6 +242,41 @@ h1,h2,h3{margin:0;font-weight:600;letter-spacing:-0.02em}
 }
 .lightbox-close:hover{background:rgba(255,255,255,0.18)}
 
+/* ---------- Testimonials ---------- */
+.testimonial-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:24px;
+}
+.testimonial-card{
+  background:var(--gray-light);
+  border-radius:var(--radius);
+  padding:28px 26px;
+}
+.testimonial-rating{color:var(--accent);font-size:15px;letter-spacing:2px;margin:0 0 12px}
+.testimonial-text{font-size:15px;color:var(--gray-dark);margin:0 0 16px}
+.testimonial-name{font-size:14px;font-weight:600;margin:0}
+
+/* ---------- FAQ ---------- */
+.faq-list{max-width:760px;margin:0 auto}
+.faq-item{
+  border-bottom:1px solid rgba(0,0,0,0.08);
+  padding:20px 0;
+}
+.faq-item summary{
+  cursor:pointer;font-weight:600;font-size:16px;
+  list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{
+  content:"+";flex-shrink:0;font-size:22px;font-weight:400;color:var(--accent);
+  transition:transform .2s var(--ease);
+}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-item p{color:var(--gray);font-size:15px;margin:14px 0 0}
+
+/* ---------- Utility ---------- */
+.is-hidden{display:none !important}
+
 /* ---------- Table ---------- */
 .table-wrap{
   border-radius:var(--radius);overflow:hidden;

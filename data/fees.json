@@ -1,0 +1,14 @@
+{
+  "coursesHeading": "Popular Courses",
+  "coursesSubtitle": "Simple pricing. No hidden charges.",
+  "rateHeading": "Rate Chart",
+  "rateSubtitle": "Transparent pricing for every course we offer.",
+  "courses": [
+    { "name": "Only Car Training", "price": "₹4,500", "showAsCard": true, "highlight": false, "badge": "" },
+    { "name": "2 Wheeler License", "price": "₹2,500", "showAsCard": true, "highlight": false, "badge": "" },
+    { "name": "4 Wheeler Training & License", "price": "₹6,500", "showAsCard": true, "highlight": true, "badge": "Most Popular" },
+    { "name": "2 Wheeler + 4 Wheeler Training & License", "price": "₹7,000", "showAsCard": false, "highlight": false, "badge": "" },
+    { "name": "Transport (HGV)", "price": "₹5,500", "showAsCard": false, "highlight": false, "badge": "" },
+    { "name": "Complete Package", "price": "₹8,000", "showAsCard": true, "highlight": false, "badge": "" }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "eyebrow": "Pune's trusted driving school",
+  "heading": "Learn Today.\nDrive Tomorrow.",
+  "subtitle": "Professional driving training and complete RTO assistance, built around you.",
+  "primaryButtonText": "Call Now",
+  "secondaryButtonText": "Explore Courses",
+  "secondaryButtonLink": "#courses",
+  "stats": [
+    { "number": "6", "label": "Courses Offered" },
+    { "number": "2", "label": "Two & Four Wheeler Training" },
+    { "number": "7", "label": "Days a Week" },
+    { "number": "13 hrs", "label": "Open Daily, 7 AM – 8 PM" }
+  ]
+}

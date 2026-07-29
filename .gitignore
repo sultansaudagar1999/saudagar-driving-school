@@ -1,0 +1,6 @@
+# Admin credentials — never commit this
+server/auth.json
+
+# Python
+__pycache__/
+*.pyc

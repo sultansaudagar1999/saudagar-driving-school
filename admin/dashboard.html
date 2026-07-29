@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard — Saudagar Motor Driving School</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<div class="topbar">
+  <h1>Saudagar Motor Driving School — Admin</h1>
+  <div class="actions">
+    <a class="btn btn-ghost btn-small" href="../index.html" target="_blank" rel="noopener">View public site</a>
+    <button class="btn btn-small" id="logoutBtn">Log out</button>
+  </div>
+</div>
+
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <button data-panel="hero" class="active">Hero Section</button>
+    <button data-panel="about">About Section</button>
+    <button data-panel="gallery">Gallery Images</button>
+    <button data-panel="testimonials">Testimonials</button>
+    <button data-panel="faq">FAQ</button>
+    <button data-panel="fees">Course Fees</button>
+    <button data-panel="contact">Contact Details</button>
+  </nav>
+
+  <main class="content">
+
+    <!-- Hero -->
+    <section class="panel active" id="panel-hero">
+      <h2>Hero Section</h2>
+      <p class="panel-sub">The big headline visitors see first.</p>
+      <div class="message" id="hero-message"></div>
+
+      <div class="field"><label for="hero-eyebrow">Eyebrow text</label><input type="text" id="hero-eyebrow"></div>
+      <div class="field"><label for="hero-heading">Headline (use a new line for a line break)</label><textarea id="hero-heading"></textarea></div>
+      <div class="field"><label for="hero-subtitle">Subtitle</label><textarea id="hero-subtitle"></textarea></div>
+      <div class="field-row">
+        <div class="field"><label for="hero-primary-btn">Primary button text</label><input type="text" id="hero-primary-btn"></div>
+        <div class="field"><label for="hero-secondary-btn">Secondary button text</label><input type="text" id="hero-secondary-btn"></div>
+      </div>
+      <div class="field"><label for="hero-secondary-link">Secondary button link</label><input type="text" id="hero-secondary-link"></div>
+
+      <label>Stats bar</label>
+      <div id="hero-stats-list"></div>
+      <button type="button" class="add-row-btn" id="hero-stats-add">+ Add stat</button>
+
+      <div class="save-bar">
+        <button class="btn" id="hero-save">Save changes</button>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="panel" id="panel-about">
+      <h2>About Section</h2>
+      <p class="panel-sub">The "Why learn with us" section and its feature cards.</p>
+      <div class="message" id="about-message"></div>
+
+      <div class="field"><label for="about-heading">Heading</label><input type="text" id="about-heading"></div>
+      <div class="field"><label for="about-subtitle">Subtitle</label><textarea id="about-subtitle"></textarea></div>
+
+      <label>Feature cards</label>
+      <div id="about-features-list"></div>
+      <button type="button" class="add-row-btn" id="about-features-add">+ Add feature</button>
+
+      <div class="save-bar">
+        <button class="btn" id="about-save">Save changes</button>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="panel" id="panel-gallery">
+      <h2>Gallery Images</h2>
+      <p class="panel-sub">Photos shown in the "Our Training in Action" section.</p>
+      <div class="message" id="gallery-message"></div>
+
+      <div class="field"><label for="gallery-heading">Heading</label><input type="text" id="gallery-heading"></div>
+      <div class="field"><label for="gallery-subtitle">Subtitle</label><textarea id="gallery-subtitle"></textarea></div>
+
+      <div class="upload-box">
+        <p>Upload a new photo (JPG, PNG, WEBP or GIF, max 8MB). It's saved immediately.</p>
+        <div class="field"><label for="gallery-upload-alt">Description (alt text) for the new photo</label><input type="text" id="gallery-upload-alt" placeholder="e.g. Student practicing a hill start"></div>
+        <input type="file" id="gallery-upload-file" accept="image/png,image/jpeg,image/webp,image/gif">
+        <div style="margin-top:12px">
+          <button type="button" class="btn btn-small" id="gallery-upload-btn">Upload &amp; add</button>
+        </div>
+      </div>
+
+      <label>Current images</label>
+      <div id="gallery-items-list"></div>
+
+      <div class="save-bar">
+        <button class="btn" id="gallery-save">Save changes</button>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="panel" id="panel-testimonials">
+      <h2>Testimonials</h2>
+      <p class="panel-sub">Shown only once you add at least one — keep these genuine.</p>
+      <div class="message" id="testimonials-message"></div>
+
+      <div class="field"><label for="testimonials-heading">Heading</label><input type="text" id="testimonials-heading"></div>
+      <div class="field"><label for="testimonials-subtitle">Subtitle</label><textarea id="testimonials-subtitle"></textarea></div>
+
+      <label>Testimonials</label>
+      <div id="testimonials-items-list"></div>
+      <button type="button" class="add-row-btn" id="testimonials-items-add">+ Add testimonial</button>
+
+      <div class="save-bar">
+        <button class="btn" id="testimonials-save">Save changes</button>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="panel" id="panel-faq">
+      <h2>FAQ</h2>
+      <p class="panel-sub">Common questions shown before the contact section.</p>
+      <div class="message" id="faq-message"></div>
+
+      <div class="field"><label for="faq-heading">Heading</label><input type="text" id="faq-heading"></div>
+      <div class="field"><label for="faq-subtitle">Subtitle</label><textarea id="faq-subtitle"></textarea></div>
+
+      <label>Questions</label>
+      <div id="faq-items-list"></div>
+      <button type="button" class="add-row-btn" id="faq-items-add">+ Add question</button>
+
+      <div class="save-bar">
+        <button class="btn" id="faq-save">Save changes</button>
+      </div>
+    </section>
+
+    <!-- Fees -->
+    <section class="panel" id="panel-fees">
+      <h2>Course Fees</h2>
+      <p class="panel-sub">Drives both the "Popular Courses" cards and the "Rate Chart" table.</p>
+      <div class="message" id="fees-message"></div>
+
+      <div class="field-row">
+        <div class="field"><label for="fees-courses-heading">Courses section heading</label><input type="text" id="fees-courses-heading"></div>
+        <div class="field"><label for="fees-courses-subtitle">Courses section subtitle</label><input type="text" id="fees-courses-subtitle"></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label for="fees-rate-heading">Rate chart heading</label><input type="text" id="fees-rate-heading"></div>
+        <div class="field"><label for="fees-rate-subtitle">Rate chart subtitle</label><input type="text" id="fees-rate-subtitle"></div>
+      </div>
+
+      <label>Courses</label>
+      <div id="fees-courses-list"></div>
+      <button type="button" class="add-row-btn" id="fees-courses-add">+ Add course</button>
+
+      <div class="save-bar">
+        <button class="btn" id="fees-save">Save changes</button>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="panel" id="panel-contact">
+      <h2>Contact Details</h2>
+      <p class="panel-sub">Also used for every "Call Now" button across the site.</p>
+      <div class="message" id="contact-message"></div>
+
+      <div class="field"><label for="contact-heading">Heading</label><input type="text" id="contact-heading"></div>
+      <div class="field"><label for="contact-subtitle">Subtitle</label><textarea id="contact-subtitle"></textarea></div>
+      <div class="field"><label for="contact-address">Address</label><textarea id="contact-address"></textarea></div>
+      <div class="field"><label for="contact-hours">Hours</label><input type="text" id="contact-hours"></div>
+
+      <label>Phone numbers (first one is used for all "Call Now" buttons)</label>
+      <div id="contact-phones-list"></div>
+      <button type="button" class="add-row-btn" id="contact-phones-add">+ Add phone number</button>
+
+      <div class="save-bar">
+        <button class="btn" id="contact-save">Save changes</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="dashboard.js"></script>
+</body>
+</html>

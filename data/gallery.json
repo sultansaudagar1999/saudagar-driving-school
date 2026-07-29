@@ -1,0 +1,12 @@
+{
+  "heading": "Our Training in Action",
+  "subtitle": "A look at the vehicles, practice tracks, and lessons that get you road-ready.",
+  "items": [
+    { "src": "images/gallery/learning-to-drive.jpg", "alt": "Instructor handing over the car keys to a learner" },
+    { "src": "images/gallery/practice-track.jpg", "alt": "Cone-marked practice track used for driving training" },
+    { "src": "images/gallery/two-wheeler-training.jpg", "alt": "Row of two-wheelers used for scooter and bike training" },
+    { "src": "images/gallery/on-the-road.jpg", "alt": "Rider on a two-wheeler practicing on the road" },
+    { "src": "images/gallery/behind-the-wheel.jpg", "alt": "Student driver focused behind the steering wheel" },
+    { "src": "images/gallery/confident-driving.jpg", "alt": "Instructor and student smiling during a car lesson" }
+  ]
+}
