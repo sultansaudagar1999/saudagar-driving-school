@@ -19,7 +19,7 @@ html{scroll-behavior:smooth}
 
 body{
   margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   background:var(--white);
   color:var(--near-black);
   -webkit-font-smoothing:antialiased;
@@ -28,7 +28,7 @@ body{
 
 .container{width:92%;max-width:1100px;margin:0 auto}
 
-h1,h2,h3{margin:0;font-weight:600;letter-spacing:-0.02em}
+h1,h2,h3{margin:0;font-family:"Fraunces",Georgia,serif;font-weight:600;letter-spacing:-0.01em}
 
 /* ---------- Header ---------- */
 #site-header{
@@ -62,6 +62,7 @@ h1,h2,h3{margin:0;font-weight:600;letter-spacing:-0.02em}
   background:var(--accent);border-radius:2px;
 }
 .nav-cta-mobile{display:none}
+.nav-cta-desktop{display:flex;align-items:center;gap:8px}
 
 /* ---------- Mobile nav toggle ---------- */
 .nav-toggle{
@@ -100,6 +101,8 @@ h1,h2,h3{margin:0;font-weight:600;letter-spacing:-0.02em}
 .btn-ghost:hover{background:rgba(0,0,0,0.06);color:var(--near-black)}
 .section-dark .btn-ghost{color:var(--white);border-color:rgba(255,255,255,0.3)}
 .section-dark .btn-ghost:hover{background:rgba(255,255,255,0.1);color:var(--white)}
+.btn-whatsapp{background:#25d366}
+.btn-whatsapp:hover{background:#1da851}
 
 /* ---------- Hero ---------- */
 .hero{
@@ -295,6 +298,7 @@ tr:hover td{background:var(--gray-light)}
 }
 .contact-grid h2{text-align:left;font-size:clamp(28px,4vw,42px)}
 .contact-grid .section-sub{text-align:left;margin:14px 0 32px}
+.contact-actions{display:flex;gap:12px;flex-wrap:wrap}
 .contact-card{
   background:#1c1c1e;border:1px solid rgba(255,255,255,0.08);
   border-radius:var(--radius);padding:36px;
@@ -306,6 +310,34 @@ tr:hover td{background:var(--gray-light)}
 }
 .contact-row p{margin:0;color:#e5e5e7;font-size:16px}
 .contact-row a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.3)}
+
+/* ---------- Enquiry form ---------- */
+.enquiry-form{
+  max-width:600px;margin:56px auto 0;
+  background:#1c1c1e;border:1px solid rgba(255,255,255,0.08);
+  border-radius:var(--radius);padding:32px;
+}
+.enquiry-form h3{color:var(--white);font-size:20px;margin:0 0 6px}
+.enquiry-sub{color:#a1a1a6;font-size:14px;margin:0 0 22px}
+.enquiry-form .field{margin-bottom:16px}
+.enquiry-form .field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.enquiry-form label{display:block;color:#a1a1a6;font-size:13px;font-weight:600;margin-bottom:6px}
+.enquiry-form input,.enquiry-form textarea{
+  width:100%;padding:10px 12px;border-radius:10px;
+  border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.05);
+  color:var(--white);font:inherit;
+}
+.enquiry-form textarea{resize:vertical}
+.enquiry-form input:focus,.enquiry-form textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
+@media (max-width:640px){.enquiry-form .field-row{grid-template-columns:1fr}}
+
+/* ---------- Map embed ---------- */
+.map-embed{
+  max-width:600px;margin:24px auto 0;
+  border-radius:var(--radius);overflow:hidden;
+  border:1px solid rgba(255,255,255,0.08);
+}
+.map-embed iframe{width:100%;height:320px;border:0;display:block}
 
 /* ---------- Footer ---------- */
 footer{background:var(--black);color:#86868b;text-align:center;padding:28px 0;font-size:13px;border-top:1px solid rgba(255,255,255,0.08)}
@@ -333,13 +365,14 @@ footer{background:var(--black);color:#86868b;text-align:center;padding:28px 0;fo
   }
   #site-header nav a{font-size:22px;opacity:1}
   #site-header nav a.active::after{bottom:-10px}
-  .nav-cta-mobile{display:inline-block;margin-top:12px}
+  .nav-cta-mobile{display:flex;gap:8px;margin-top:12px}
 
   .hero{padding:140px 20px 80px}
   .stats-grid{gap:28px 20px}
   .contact-grid{grid-template-columns:1fr;gap:36px}
   .contact-grid h2,.contact-grid .section-sub{text-align:center}
   .contact-grid > div:first-child{text-align:center}
+  .contact-actions{justify-content:center}
 }
 
 /* ---------- Reduced motion ---------- */

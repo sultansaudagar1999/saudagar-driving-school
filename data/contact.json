@@ -1,7 +1,11 @@
 {
   "heading": "Get in touch",
   "subtitle": "Walk in, call, or drop by — we're happy to answer any question.",
-  "address": "Shop No. 3, Sangam Cross Road, Dapodi, Pune 411012",
+  "address": "Shop No. 3, S.t.workshop Rd, Dapodi, Pimpri-Chinchwad, Pune, Maharashtra 411012, India",
   "phones": ["9766507860", "9762628372"],
-  "hours": "7:00 AM – 8:00 PM, all week"
+  "hours": "7:00 AM – 8:00 PM, all week",
+  "whatsappNumber": "9766507860",
+  "enquiryEmail": "sultansaudagar1999@gmail.com",
+  "geoLat": "18.577101",
+  "geoLng": "73.826275"
 }

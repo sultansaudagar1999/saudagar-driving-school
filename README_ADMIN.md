@@ -121,8 +121,22 @@ saving one section doesn't affect the others.
 - **Course Fees** — one shared list of courses. Each course can appear
   as a pricing card, in the rate chart table, or both — check "Show as
   a pricing card" to include it among the 4 cards.
-- **Contact Details** — address, phone numbers, and hours. The first
-  phone number is used for every "Call Now" button across the site.
+- **Contact Details** — address, phone numbers, hours, WhatsApp number,
+  enquiry form email, and map coordinates. The first phone number is
+  used for every "Call Now" button across the site; the WhatsApp field
+  falls back to that same number if left blank. The mailto: enquiry
+  form on the public site stays hidden until you set an email here.
+  Map coordinates are optional — if left blank, the embedded map falls
+  back to searching by the address text instead of an exact pin.
+
+## Local SEO structured data
+
+The public site injects `DrivingSchool` (a subtype of `LocalBusiness`)
+JSON-LD structured data automatically, built from the same Hero /
+Contact / Fees / Gallery content you edit in the dashboard — nothing
+extra to fill in. Setting the map latitude/longitude in Contact
+Details additionally adds precise `geo` coordinates to that structured
+data, which is worth doing for local search ranking.
 
 ## Security notes
 
@@ -133,6 +147,9 @@ saving one section doesn't affect the others.
 - Passwords are hashed with salted PBKDF2 (100,000 iterations) — the
   plain password is never stored.
 - Sessions are kept in memory and reset whenever the server restarts.
+- State-changing requests (save, upload, logout) are rejected unless
+  their `Origin` header matches this server, which blocks CSRF attempts
+  from other sites while you're logged in.
 - `server/auth.json` is in `.gitignore` — never commit it.
 
 ## Troubleshooting

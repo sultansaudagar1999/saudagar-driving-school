@@ -412,6 +412,10 @@ async function initContact() {
   document.getElementById('contact-subtitle').value = contact.subtitle || '';
   document.getElementById('contact-address').value = contact.address || '';
   document.getElementById('contact-hours').value = contact.hours || '';
+  document.getElementById('contact-whatsapp').value = contact.whatsappNumber || '';
+  document.getElementById('contact-enquiry-email').value = contact.enquiryEmail || '';
+  document.getElementById('contact-geo-lat').value = contact.geoLat || '';
+  document.getElementById('contact-geo-lng').value = contact.geoLng || '';
   contact.phones = contact.phones || [];
   renderContactPhones();
 }
@@ -433,6 +437,10 @@ document.getElementById('contact-save').addEventListener('click', async () => {
   contact.subtitle = document.getElementById('contact-subtitle').value;
   contact.address = document.getElementById('contact-address').value;
   contact.hours = document.getElementById('contact-hours').value;
+  contact.whatsappNumber = document.getElementById('contact-whatsapp').value;
+  contact.enquiryEmail = document.getElementById('contact-enquiry-email').value;
+  contact.geoLat = document.getElementById('contact-geo-lat').value;
+  contact.geoLng = document.getElementById('contact-geo-lng').value;
   try { await saveJSON('contact', contact); showMessage('contact', 'Saved.'); }
   catch (e) { showMessage('contact', e.message, true); }
 });

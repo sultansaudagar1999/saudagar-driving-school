@@ -161,7 +161,7 @@
     <!-- Contact -->
     <section class="panel" id="panel-contact">
       <h2>Contact Details</h2>
-      <p class="panel-sub">Also used for every "Call Now" button across the site.</p>
+      <p class="panel-sub">Also used for every "Call Now"/WhatsApp button, the map, and the enquiry form across the site.</p>
       <div class="message" id="contact-message"></div>
 
       <div class="field"><label for="contact-heading">Heading</label><input type="text" id="contact-heading"></div>
@@ -172,6 +172,25 @@
       <label>Phone numbers (first one is used for all "Call Now" buttons)</label>
       <div id="contact-phones-list"></div>
       <button type="button" class="add-row-btn" id="contact-phones-add">+ Add phone number</button>
+
+      <div class="field">
+        <label for="contact-whatsapp">WhatsApp number (10 digits, no country code — leave blank to reuse the first phone number above)</label>
+        <input type="text" id="contact-whatsapp" placeholder="e.g. 9766507860">
+      </div>
+      <div class="field">
+        <label for="contact-enquiry-email">Enquiry form email (the "Send Enquiry" form on the site is hidden until this is set)</label>
+        <input type="text" id="contact-enquiry-email" placeholder="e.g. saudagarmotordrivingschool@gmail.com">
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="contact-geo-lat">Map latitude (optional — right-click your shop on Google Maps to copy it)</label>
+          <input type="text" id="contact-geo-lat" placeholder="e.g. 18.5946">
+        </div>
+        <div class="field">
+          <label for="contact-geo-lng">Map longitude (optional)</label>
+          <input type="text" id="contact-geo-lng" placeholder="e.g. 73.8331">
+        </div>
+      </div>
 
       <div class="save-bar">
         <button class="btn" id="contact-save">Save changes</button>

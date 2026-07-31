@@ -15,7 +15,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
 </head>
@@ -32,9 +32,15 @@
       <a href="#rates">Rates</a>
       <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
-      <a class="btn btn-small nav-cta-mobile" data-call-now href="tel:">Call Now</a>
+      <div class="nav-cta-mobile nav-cta-group">
+        <a class="btn btn-small" data-call-now href="tel:">Call Now</a>
+        <a class="btn btn-small btn-whatsapp" data-whatsapp href="#" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
     </nav>
-    <a class="btn btn-small nav-cta-desktop" data-call-now href="tel:">Call Now</a>
+    <div class="nav-cta-desktop nav-cta-group">
+      <a class="btn btn-small" data-call-now href="tel:">Call Now</a>
+      <a class="btn btn-small btn-whatsapp" data-whatsapp href="#" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
     <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="primaryNav">
       <span></span><span></span><span></span>
     </button>
@@ -47,6 +53,7 @@
   <p class="hero-sub reveal" id="heroSub"></p>
   <div class="hero-actions reveal">
     <a class="btn" data-call-now href="tel:" id="heroPrimaryBtn"></a>
+    <a class="btn btn-whatsapp" data-whatsapp href="#" target="_blank" rel="noopener">WhatsApp</a>
     <a class="btn btn-ghost" href="#courses" id="heroSecondaryBtn"></a>
   </div>
 </section>
@@ -119,7 +126,10 @@
     <div class="reveal">
       <h2 id="contactHeading"></h2>
       <p class="section-sub" id="contactSubtitle"></p>
-      <a class="btn" data-call-now href="tel:">Call Now</a>
+      <div class="contact-actions">
+        <a class="btn" data-call-now href="tel:">Call Now</a>
+        <a class="btn btn-whatsapp" data-whatsapp href="#" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
     </div>
     <div class="contact-card reveal">
       <div class="contact-row">
@@ -136,11 +146,28 @@
       </div>
     </div>
   </div>
+
+  <div class="container">
+    <form class="enquiry-form reveal is-hidden" id="enquiryForm">
+      <h3>Send an enquiry</h3>
+      <p class="enquiry-sub">We'll open your email app with the details filled in.</p>
+      <div class="field-row">
+        <div class="field"><label for="enquiryName">Name</label><input type="text" id="enquiryName" required></div>
+        <div class="field"><label for="enquiryPhone">Phone</label><input type="tel" id="enquiryPhone" required></div>
+      </div>
+      <div class="field"><label for="enquiryMessage">Message</label><textarea id="enquiryMessage" rows="4" required></textarea></div>
+      <button type="submit" class="btn btn-small">Send Enquiry</button>
+    </form>
+
+    <div class="map-embed reveal" id="mapEmbedWrap">
+      <iframe id="mapEmbed" title="Map to Saudagar Motor Driving School" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
+  </div>
 </section>
 
 <footer>
   <div class="container">
-    <p>© 2026 Saudagar Motor Driving School. All rights reserved.</p>
+    <p>© <span id="footerYear"></span> Saudagar Motor Driving School. All rights reserved.</p>
   </div>
 </footer>
 
@@ -267,10 +294,88 @@ function renderContact(data) {
   document.getElementById('contactPhoneLinks').innerHTML = phones
     .map(p => `<a href="tel:${esc(p)}">${esc(p)}</a>`)
     .join(' / ');
+
+  const lat = parseFloat(data.geoLat);
+  const lng = parseFloat(data.geoLng);
+  const mapQuery = (!isNaN(lat) && !isNaN(lng)) ? `${lat},${lng}` : (data.address || '');
+  document.getElementById('mapEmbed').src = `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&output=embed`;
+
+  const enquiryForm = document.getElementById('enquiryForm');
+  if (data.enquiryEmail) {
+    enquiryForm.classList.remove('is-hidden');
+    enquiryForm.dataset.enquiryEmail = data.enquiryEmail;
+  } else {
+    enquiryForm.classList.add('is-hidden');
+  }
+}
+
+function digitsOnly(value) {
+  return String(value || '').replace(/\D/g, '');
 }
 
 function applyCallNowLinks(phone) {
   document.querySelectorAll('[data-call-now]').forEach(el => { el.href = `tel:${phone}`; });
+}
+
+function applyWhatsAppLinks(whatsappNumber) {
+  const digits = digitsOnly(whatsappNumber);
+  const international = digits.length === 10 ? `91${digits}` : digits;
+  const message = encodeURIComponent("Hi, I'm interested in driving lessons at Saudagar Motor Driving School.");
+  const link = `https://wa.me/${international}?text=${message}`;
+  document.querySelectorAll('[data-whatsapp]').forEach(el => { el.href = link; });
+}
+
+function injectLocalBusinessSchema(hero, contact, fees, gallery) {
+  const prices = (fees.courses || [])
+    .map(c => parseInt(String(c.price).replace(/[^\d]/g, ''), 10))
+    .filter(n => !isNaN(n));
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'DrivingSchool',
+    name: 'Saudagar Motor Driving School',
+    telephone: contact.phones && contact.phones[0] ? `+91${digitsOnly(contact.phones[0])}` : undefined,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: contact.address || undefined,
+      addressCountry: 'IN',
+    },
+  };
+  if (gallery.items && gallery.items[0]) schema.image = gallery.items[0].src;
+  if (prices.length) {
+    schema.priceRange = `₹${Math.min(...prices).toLocaleString('en-IN')}–₹${Math.max(...prices).toLocaleString('en-IN')}`;
+  }
+  const lat = parseFloat(contact.geoLat);
+  const lng = parseFloat(contact.geoLng);
+  if (!isNaN(lat) && !isNaN(lng)) {
+    schema.geo = { '@type': 'GeoCoordinates', latitude: lat, longitude: lng };
+  }
+  const openingHours = parseOpeningHours(contact.hours);
+  if (openingHours) schema.openingHours = openingHours;
+
+  const script = document.createElement('script');
+  script.type = 'application/ld+json';
+  script.textContent = JSON.stringify(schema);
+  document.head.appendChild(script);
+}
+
+function parseOpeningHours(text) {
+  if (!text) return null;
+  const match = String(text).match(/(\d{1,2}(?::\d{2})?\s*[AaPp]\.?[Mm]\.?)\s*[–-]\s*(\d{1,2}(?::\d{2})?\s*[AaPp]\.?[Mm]\.?)/);
+  if (!match) return null;
+  const to24 = (t) => {
+    const m = t.match(/(\d{1,2})(?::(\d{2}))?\s*([AaPp])/);
+    if (!m) return null;
+    let h = parseInt(m[1], 10);
+    const min = m[2] || '00';
+    const isPM = m[3].toLowerCase() === 'p';
+    if (isPM && h !== 12) h += 12;
+    if (!isPM && h === 12) h = 0;
+    return String(h).padStart(2, '0') + ':' + min;
+  };
+  const start = to24(match[1]);
+  const end = to24(match[2]);
+  if (!start || !end) return null;
+  return `Mo-Su ${start}-${end}`;
 }
 
 /* ---------- boot: fetch content, render, then wire up interactivity ---------- */
@@ -291,11 +396,28 @@ async function boot() {
   renderFees(fees, primaryPhone);
   renderContact(contact);
   applyCallNowLinks(primaryPhone);
+  applyWhatsAppLinks(contact.whatsappNumber || primaryPhone);
+  injectLocalBusinessSchema(hero, contact, fees, gallery);
 
   initInteractivity();
 }
 
 function initInteractivity() {
+  document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+  const enquiryForm = document.getElementById('enquiryForm');
+  enquiryForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const email = enquiryForm.dataset.enquiryEmail;
+    if (!email) return;
+    const name = document.getElementById('enquiryName').value;
+    const phone = document.getElementById('enquiryPhone').value;
+    const message = document.getElementById('enquiryMessage').value;
+    const subject = encodeURIComponent(`Enquiry from ${name}`);
+    const body = encodeURIComponent(`Name: ${name}\nPhone: ${phone}\n\n${message}`);
+    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+  });
+
   const header = document.getElementById('site-header');
   window.addEventListener('scroll', () => {
     header.classList.toggle('scrolled', window.scrollY > 8);

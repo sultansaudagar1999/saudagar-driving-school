@@ -33,6 +33,10 @@ SESSION_COOKIE = "sms_admin_session"
 SESSION_TTL_SECONDS = 8 * 60 * 60  # 8 hours
 PBKDF2_ITERATIONS = 100_000
 
+# Set once in main() before the server starts; used to reject cross-site
+# POSTs (CSRF) by checking the browser-supplied Origin header.
+SERVER_PORT = 8000
+
 ALLOWED_DATA_FILES = {
     "hero", "about", "gallery", "testimonials", "faq", "fees", "contact",
 }
@@ -98,6 +102,17 @@ class AdminRequestHandler(http.server.SimpleHTTPRequestHandler):
             return {}
         return json.loads(raw)
 
+    def _has_valid_origin(self):
+        """CSRF guard: state-changing requests must come from a page this
+        server itself served. A cross-site page cannot forge this header."""
+        origin = self.headers.get("Origin")
+        if origin is None:
+            # Same-origin requests without an explicit Origin header (e.g.
+            # some non-fetch clients) are allowed; browsers always attach
+            # Origin to fetch()/XHR POSTs, which is what the dashboard uses.
+            return True
+        return origin == f"http://127.0.0.1:{SERVER_PORT}"
+
     # ---- routing ----
 
     def do_GET(self):
@@ -112,6 +127,11 @@ class AdminRequestHandler(http.server.SimpleHTTPRequestHandler):
 
         if path == "/api/login":
             return self._handle_login()
+
+        if path in ("/api/logout", "/api/admin/upload") or path.startswith("/api/admin/save/"):
+            if not self._has_valid_origin():
+                return self._send_json({"error": "Rejected: cross-site request"}, 403)
+
         if path == "/api/logout":
             return self._handle_logout()
         if path.startswith("/api/admin/save/"):
@@ -210,12 +230,14 @@ class AdminRequestHandler(http.server.SimpleHTTPRequestHandler):
 
 
 def main():
+    global SERVER_PORT
     port = 8000
     if len(sys.argv) > 1:
         try:
             port = int(sys.argv[1])
         except ValueError:
             print(f"Ignoring invalid port '{sys.argv[1]}', using {port}")
+    SERVER_PORT = port
 
     if not AUTH_FILE.exists():
         print("No admin account found yet.")
