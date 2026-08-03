@@ -1,0 +1,29 @@
+admin/admin.css
+  s_f0d126b9e5200a::t_82532a176a76bb 57-58
+admin/dashboard.html
+  s_f0d126b9e5200a::t_c1be73c964b3b3 110-121
+admin/dashboard.js
+  s_f0d126b9e5200a::t_02ee42e4df34cb 309,333
+data/testimonials.json
+  s_f0d126b9e5200a::t_5af52053d114d2 4
+index.html
+  s_f0d126b9e5200a::t_856194d4a7fe6a 168-176,242-250,254-255,258,267-276,357-408,483-493,510,512-517,521,524
+style.css
+  s_f0d126b9e5200a::t_de8212d3584c65 261,382-434
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "72d51a6d1abff50567b9714b8abcd0f03c57ce0f",
+  "prompts": {},
+  "sessions": {
+    "s_f0d126b9e5200a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4f186888-9cb6-4ee5-a61a-163c29b170c0",
+        "model": "unknown"
+      },
+      "human_author": "Sultan Saudagar <sultan.saudagar@definelabs.in>"
+    }
+  }
+}
