@@ -306,6 +306,7 @@ async function initTestimonials() {
   testimonials = await loadJSON('testimonials');
   document.getElementById('testimonials-heading').value = testimonials.heading || '';
   document.getElementById('testimonials-subtitle').value = testimonials.subtitle || '';
+  document.getElementById('testimonials-widget-id').value = testimonials.googleReviewsWidgetId || '';
   testimonials.items = testimonials.items || [];
   renderTestimonialItems();
 }
@@ -329,6 +330,7 @@ document.getElementById('testimonials-items-add').addEventListener('click', () =
 document.getElementById('testimonials-save').addEventListener('click', async () => {
   testimonials.heading = document.getElementById('testimonials-heading').value;
   testimonials.subtitle = document.getElementById('testimonials-subtitle').value;
+  testimonials.googleReviewsWidgetId = document.getElementById('testimonials-widget-id').value.trim();
   try { await saveJSON('testimonials', testimonials); showMessage('testimonials', 'Saved.'); }
   catch (e) { showMessage('testimonials', e.message, true); }
 });

@@ -54,6 +54,8 @@ input[type="text"],input[type="password"],input[type="url"],input[type="tel"],te
 textarea{resize:vertical;min-height:70px}
 input:focus,textarea:focus,select:focus{outline:2px solid var(--accent);outline-offset:1px}
 .field{margin-bottom:16px}
+.field-hint{color:var(--gray);font-size:12px;margin:6px 0 0;line-height:1.5}
+.field-hint code{background:var(--gray-light);padding:1px 5px;border-radius:4px;font-size:11px}
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media (max-width:640px){.field-row{grid-template-columns:1fr}}
 

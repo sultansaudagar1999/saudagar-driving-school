@@ -258,6 +258,7 @@ h1,h2,h3{margin:0;font-family:"Fraunces",Georgia,serif;font-weight:600;letter-sp
   border-radius:var(--radius);
   padding:28px 26px;
 }
+.testimonial-grid.testimonial-grid--widget{display:block}
 .testimonial-rating{color:var(--accent);font-size:15px;letter-spacing:2px;margin:0 0 12px}
 .testimonial-text{font-size:15px;color:var(--gray-dark);margin:0 0 16px}
 .testimonial-name{font-size:14px;font-weight:600;margin:0}
@@ -377,6 +378,59 @@ footer{background:var(--black);color:#86868b;text-align:center;padding:28px 0;fo
   .contact-grid > div:first-child{text-align:center}
   .contact-actions{justify-content:center}
 }
+
+/* ---------- Floating call/WhatsApp button ---------- */
+.floating-cta{
+  position:fixed;right:20px;bottom:20px;z-index:150;
+  display:flex;flex-direction:column;gap:12px;
+  opacity:0;transform:translateY(16px) scale(.9);pointer-events:none;
+  transition:opacity .3s var(--ease), transform .3s var(--ease);
+}
+.floating-cta.show{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
+.floating-cta-btn{
+  width:52px;height:52px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;text-decoration:none;
+  box-shadow:0 8px 24px rgba(0,0,0,0.28);
+  transition:transform .2s var(--ease), background .2s var(--ease);
+}
+.floating-cta-btn svg{width:24px;height:24px}
+.floating-cta-btn:hover{transform:translateY(-2px) scale(1.06)}
+.floating-cta-call{background:var(--near-black)}
+.floating-cta-call:hover{background:var(--accent)}
+.floating-cta-whatsapp{background:#25d366}
+.floating-cta-whatsapp:hover{background:#1da851}
+@media (max-width:480px){
+  .floating-cta{right:16px;bottom:16px;gap:10px}
+  .floating-cta-btn{width:48px;height:48px}
+  .floating-cta-btn svg{width:22px;height:22px}
+}
+
+/* ---------- Contact fallback toast ---------- */
+.contact-toast{
+  position:fixed;left:50%;bottom:28px;z-index:300;
+  transform:translate(-50%,20px);
+  max-width:360px;width:calc(100% - 40px);
+  background:#1c1c1e;color:var(--white);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:16px;
+  padding:18px 44px 18px 20px;
+  box-shadow:0 20px 50px rgba(0,0,0,0.35);
+  opacity:0;pointer-events:none;
+  transition:opacity .25s var(--ease), transform .25s var(--ease);
+}
+.contact-toast.show{opacity:1;pointer-events:auto;transform:translate(-50%,0)}
+.contact-toast p{margin:0 0 14px;font-size:14px;color:#e5e5e7;line-height:1.45}
+.contact-toast strong{color:#fff}
+.contact-toast-actions{display:flex;gap:10px;flex-wrap:wrap}
+.contact-toast-close{
+  position:absolute;top:8px;right:10px;
+  width:28px;height:28px;border-radius:50%;
+  background:none;border:none;color:#a1a1a6;font-size:20px;line-height:1;cursor:pointer;
+  transition:background .2s var(--ease), color .2s var(--ease);
+}
+.contact-toast-close:hover{background:rgba(255,255,255,0.1);color:#fff}
+@media (max-width:480px){.contact-toast{bottom:16px}}
 
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion:reduce){

@@ -107,7 +107,18 @@
       <div class="field"><label for="testimonials-heading">Heading</label><input type="text" id="testimonials-heading"></div>
       <div class="field"><label for="testimonials-subtitle">Subtitle</label><textarea id="testimonials-subtitle"></textarea></div>
 
-      <label>Testimonials</label>
+      <div class="field">
+        <label for="testimonials-widget-id">Google Reviews widget ID (optional)</label>
+        <input type="text" id="testimonials-widget-id" placeholder="e.g. a1b2c3d4-e5f6-...">
+        <p class="field-hint">
+          Shows live Google reviews instead of the list below. Get this from
+          <a href="https://elfsight.com/google-reviews-widget/" target="_blank" rel="noopener">elfsight.com's Google Reviews widget</a>
+          — sign up, connect your Google Business Profile, and copy the ID from the embed code
+          (the part after <code>elfsight-app-</code>). Leave blank to show the manual list below instead.
+        </p>
+      </div>
+
+      <label>Testimonials (used only if no widget ID is set above)</label>
       <div id="testimonials-items-list"></div>
       <button type="button" class="add-row-btn" id="testimonials-items-add">+ Add testimonial</button>
 
